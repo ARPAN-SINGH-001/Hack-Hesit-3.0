@@ -1,0 +1,353 @@
+/* ========================================
+   TRACKS SECTION
+======================================== */
+
+.tracks-section {
+  position: relative;
+  padding: 120px 10%;
+  background: #0b0b0b;
+  overflow: hidden;
+}
+
+/* Background grid */
+
+.tracks-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Background glow */
+
+.tracks-section::after {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -250px;
+  top: 20%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.07),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.tracks-header {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.tracks-label {
+  color: #ff3030;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+
+  margin-bottom: 20px;
+}
+
+.tracks-header h2 {
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.1;
+}
+
+.tracks-header h2 span {
+  color: #ff3030;
+}
+
+.tracks-subtitle {
+  color: #888;
+  font-size: 1rem;
+  margin-top: 20px;
+  letter-spacing: 1px;
+}
+
+/* ========================================
+   TRACK GRID
+======================================== */
+
+.tracks-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+/* ========================================
+   TRACK CARD
+======================================== */
+
+.track-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 320px;
+  padding: 30px;
+
+  background: rgba(15, 15, 15, 0.8);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Red light at the top */
+
+.track-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 0%;
+  height: 2px;
+
+  background: #ff3030;
+
+  box-shadow: 0 0 15px #ff3030;
+
+  transition: width 0.4s ease;
+}
+
+/* Card hover */
+
+.track-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(255, 48, 48, 0.4);
+
+  background: rgba(20, 10, 10, 0.95);
+
+  box-shadow: 0 15px 40px rgba(255, 0, 0, 0.05);
+}
+
+.track-card:hover::before {
+  width: 100%;
+}
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.track-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.track-number {
+  color: rgba(255, 48, 48, 0.5);
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.track-status {
+  color: #ff3030;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(255, 48, 48, 0.3);
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.track-card-content {
+  margin: 40px 0;
+}
+
+.track-card-content h3 {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+
+  margin-bottom: 15px;
+
+  transition: color 0.3s ease;
+}
+
+.track-card:hover .track-card-content h3 {
+  color: #ff3030;
+}
+
+.track-card-content p {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   CARD BOTTOM
+======================================== */
+
+.track-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.track-line {
+  width: 30px;
+  height: 1px;
+
+  background: #ff3030;
+
+  transition: width 0.3s ease;
+}
+
+.track-card:hover .track-line {
+  width: 50px;
+}
+
+.track-access {
+  color: #666;
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+
+  transition: color 0.3s ease;
+}
+
+.track-card:hover .track-access {
+  color: #ff3030;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+  .tracks-section {
+    padding: 100px 7%;
+  }
+
+  .tracks-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 650px) {
+  .tracks-section {
+    padding: 80px 6%;
+  }
+
+  .tracks-header {
+    margin-bottom: 45px;
+  }
+
+  .tracks-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .track-card {
+    min-height: 280px;
+    padding: 25px;
+  }
+
+  .tracks-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .tracks-subtitle {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================================
+   TRACK ICONS
+======================================== */
+
+.track-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 65px;
+  height: 65px;
+
+  margin: 25px 0;
+
+  border: 1px solid rgba(255, 48, 48, 0.2);
+
+  background: rgba(255, 48, 48, 0.04);
+
+  transition:
+    background 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    transform 0.4s ease;
+}
+
+.track-icon {
+  color: #ff3030;
+
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
+}
+
+.track-card:hover .track-icon-wrapper {
+  background: rgba(255, 48, 48, 0.1);
+
+  border-color: rgba(255, 48, 48, 0.6);
+
+  box-shadow: 0 0 25px rgba(255, 48, 48, 0.1);
+
+  transform: translateY(-3px);
+}
+
+.track-card:hover .track-icon {
+  transform: scale(1.15);
+
+  filter: drop-shadow(0 0 8px rgba(255, 48, 48, 0.6));
+}
+
+/* Better spacing for cards */
+
+.track-card-content {
+  margin: 15px 0 30px;
+}
+
+.track-card {
+  min-height: 380px;
+}

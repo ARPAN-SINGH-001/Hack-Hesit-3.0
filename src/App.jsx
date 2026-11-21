@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import CountDown from './components/CountDown'
 import About from "./components/About";
+import Tracks from "./components/Tracks";
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Hero/>
       <CountDown/>
       <About/>
+      <Tracks/>
 
     </>
   )
