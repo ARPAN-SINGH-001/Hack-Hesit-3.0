@@ -18,42 +18,42 @@ function Tracks() {
       title: "AI / ML",
       icon: BrainCircuit,
       description:
-        "Harness artificial intelligence and machine learning to develop intelligent solutions that tackle real-world challenges.",
+        "Develop intelligent, data-driven solutions that address complex real-world challenges. Explore machine learning models, predictive analytics, computer vision, natural language processing, and generative AI to build applications that enhance automation, decision-making, and problem-solving. ",
     },
     {
       number: "02",
       title: "WEB3 & BLOCKCHAIN",
       icon: Blocks,
       description:
-        "Explore decentralized technologies, smart contracts, and blockchain-powered solutions that redefine the digital world.",
+        "Explore the potential of decentralised technologies to transform digital interactions. Develop smart contracts, blockchain-based applications, secure transaction systems, and decentralised platforms that promote transparency, trust, digital ownership, and innovation. ",
     },
     {
       number: "03",
       title: "CYBERSECURITY",
       icon: ShieldCheck,
       description:
-        "Protect digital infrastructure, identify vulnerabilities, and engineer innovative solutions to emerging security threats.",
+        "Address emerging digital threats through innovative security solutions. Identify system vulnerabilities, strengthen data protection, develop threat-detection mechanisms, and design secure architectures that safeguard digital infrastructure, networks, and sensitive information. ",
     },
     {
       number: "04",
       title: "FINTECH",
       icon: TrendingUp,
       description:
-        "Reimagine financial technology through smarter payment systems, digital finance, and innovative financial solutions.",
+        "Transform financial services through technology-driven innovation. Build intelligent payment systems, digital banking solutions, financial analytics tools, and automated platforms that improve transaction efficiency, accessibility, security, and financial inclusion.",
     },
     {
       number: "05",
       title: "IoT & HARDWARE",
       icon: Cpu,
       description:
-        "Bridge the physical and digital worlds through connected devices, embedded systems, and intelligent hardware.",
+        "Create intelligent hardware solutions that connect devices, systems, and environments. Explore sensor networks, embedded systems, edge computing, and smart automation to develop practical applications that enhance connectivity, efficiency, and real-world experiences. ",
     },
     {
       number: "06",
       title: "OPEN INNOVATION",
       icon: Lightbulb,
       description:
-        "Break boundaries, challenge conventions, and transform your boldest ideas into something extraordinary.",
+        "Explore ideas beyond predefined technological domains and develop solutions to meaningful real-world challenges. Combine creativity, emerging technologies, and interdisciplinary approaches to build innovative applications, impactful products, and scalable solutions.",
     },
   ];
 
