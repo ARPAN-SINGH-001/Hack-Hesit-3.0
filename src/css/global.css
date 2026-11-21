@@ -1,0 +1,209 @@
+
+/* =========================================
+   1. CSS RESET
+========================================= */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================================
+   2. THEME VARIABLES
+   Theme-independent design system
+========================================= */
+
+:root {
+  /* Background colors */
+  --color-bg: #080808;
+  --color-bg-secondary: #111111;
+  --color-bg-tertiary: #1a1a1a;
+
+  /* Text colors */
+  --color-text: #f5f5f5;
+  --color-text-muted: #a1a1a1;
+
+  /* Theme accents - Money Heist edition */
+  --color-primary: #d62828;
+  --color-primary-hover: #ff3b3b;
+  --color-secondary: #ffffff;
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.12);
+
+  /* Effects */
+  --color-glow: rgba(214, 40, 40, 0.35);
+
+  /* Typography */
+  --font-primary: 'Arial', sans-serif;
+  --font-heading: 'Arial', sans-serif;
+
+  /* Layout */
+  --container-width: 1200px;
+  --navbar-height: 80px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Animation */
+  --transition-fast: 200ms ease;
+  --transition-medium: 350ms ease;
+  --transition-slow: 600ms ease;
+}
+
+
+/* =========================================
+   3. HTML & BODY
+========================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  font-family: var(--font-primary);
+  line-height: 1.6;
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* =========================================
+   4. GLOBAL ELEMENTS
+========================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+
+/* =========================================
+   5. SELECTION
+========================================= */
+
+::selection {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+
+/* =========================================
+   6. SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+
+/* =========================================
+   7. REUSABLE LAYOUT
+========================================= */
+
+.container {
+  width: min(100% - 40px, var(--container-width));
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: 100px;
+}
+
+
+/* =========================================
+   8. ACCESSIBILITY
+========================================= */
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
+/* =========================================
+   9. RESPONSIVE DEFAULTS
+========================================= */
+
+@media (max-width: 768px) {
+  :root {
+    --navbar-height: 70px;
+  }
+
+  .section {
+    padding-block: 70px;
+  }
+
+  .container {
+    width: min(100% - 32px, var(--container-width));
+  }
+}

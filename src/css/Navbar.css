@@ -1,0 +1,139 @@
+
+/* =========================================
+   NAVBAR - BASE LAYOUT
+========================================= */
+
+.navbar {
+  width: 100%;
+  height: var(--navbar-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5%;
+
+  position: relative;
+  z-index: 1000;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.nav-logo a {
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+
+  color: var(--color-text);
+
+  transition: var(--transition-fast);
+}
+
+.nav-logo a:hover {
+  color: var(--color-primary);
+}
+
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  position: relative;
+
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+
+  transition: color var(--transition-fast);
+}
+
+
+/* Underline animation */
+
+.nav-links a::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background-color: var(--color-primary);
+
+  transition: width var(--transition-fast);
+}
+
+.nav-links a:hover {
+  color: var(--color-text);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================================
+   REGISTRATION BUTTON
+========================================= */
+
+.nav-cta a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 24px;
+
+  background-color: var(--color-primary);
+  color: #ffffff;
+
+  border-radius: var(--radius-sm);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.nav-cta a:hover {
+  background-color: var(--color-primary-hover);
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 0 20px var(--color-glow);
+}
+
+.nav-cta a:active {
+  transform: translateY(0);
+}
+
+.navbar {
+  width: 100%;
+  height: var(--navbar-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 5%;
+
+  position: relative;
+  z-index: 1000;
+
+  /* Add these */
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
