@@ -1,0 +1,505 @@
+/* ==============================
+   TIMELINE SECTION
+================================ */
+
+.timeline-section {
+  position: relative;
+  padding: 120px 8%;
+  background: #080808;
+  overflow: hidden;
+  color: #ffffff;
+}
+
+/* BACKGROUND GRID */
+
+.timeline-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 60px 60px;
+
+  pointer-events: none;
+}
+
+/* RED AMBIENT GLOW */
+
+.timeline-section::after {
+  content: "";
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  top: 30%;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  background: rgba(255, 0, 0, 0.06);
+  filter: blur(150px);
+
+  pointer-events: none;
+}
+
+
+/* ==============================
+   SECTION HEADER
+================================ */
+
+.timeline-header {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.timeline-label {
+  color: #ff3333;
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 600;
+
+  margin-bottom: 20px;
+}
+
+.timeline-header h2 {
+  font-size: clamp(35px, 5vw, 65px);
+  font-weight: 900;
+
+  letter-spacing: -2px;
+  line-height: 1.1;
+
+  margin-bottom: 20px;
+}
+
+.timeline-header h2 span {
+  color: #ff3333;
+}
+
+.timeline-subtitle {
+  color: #888888;
+  font-size: 15px;
+  letter-spacing: 1px;
+}
+
+
+/* ==============================
+   TIMELINE CONTAINER
+================================ */
+
+.timeline-container {
+  position: relative;
+  z-index: 2;
+
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* CENTRAL LINE */
+
+.timeline-line {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 2px;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    #ff3333 10%,
+    #ff3333 90%,
+    transparent
+  );
+
+  box-shadow:
+    0 0 10px rgba(255, 0, 0, 0.5),
+    0 0 25px rgba(255, 0, 0, 0.2);
+}
+
+
+/* ==============================
+   TIMELINE EVENTS
+================================ */
+
+.timeline-event {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  min-height: 230px;
+}
+
+
+/* LEFT AND RIGHT CARD POSITIONING */
+
+.timeline-event.left {
+  justify-content: flex-start;
+}
+
+.timeline-event.right {
+  justify-content: flex-end;
+}
+
+
+/* ==============================
+   TIMELINE NODE
+================================ */
+
+.timeline-node {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #ff3333;
+  border-radius: 50%;
+
+  background: #0a0a0a;
+
+  color: #ff3333;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  z-index: 3;
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 0, 0.2),
+    inset 0 0 10px rgba(255, 0, 0, 0.05);
+
+  transition: 0.3s ease;
+}
+
+.timeline-event:hover .timeline-node {
+  background: #ff3333;
+  color: #ffffff;
+
+  box-shadow:
+    0 0 20px rgba(255, 0, 0, 0.6),
+    0 0 40px rgba(255, 0, 0, 0.2);
+}
+
+
+/* ==============================
+   TIMELINE CARD
+================================ */
+
+.timeline-card {
+  position: relative;
+
+  width: calc(50% - 55px);
+
+  padding: 30px;
+
+  background: rgba(15, 15, 15, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.4s ease;
+}
+
+
+/* CARD ACCENT */
+
+.timeline-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 3px;
+  height: 0%;
+
+  background: #ff3333;
+
+  transition: 0.4s ease;
+}
+
+.timeline-event:hover .timeline-card::before {
+  height: 100%;
+}
+
+
+/* CARD HOVER */
+
+.timeline-card:hover {
+  border-color: rgba(255, 51, 51, 0.4);
+
+  background: rgba(20, 10, 10, 0.95);
+
+  transform: translateY(-5px);
+
+  box-shadow:
+    0 10px 40px rgba(255, 0, 0, 0.08);
+}
+
+
+/* ==============================
+   CARD TOP
+================================ */
+
+.timeline-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+}
+
+.timeline-time {
+  color: #ff3333;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.timeline-status {
+  color: #666666;
+
+  font-size: 9px;
+  letter-spacing: 1px;
+
+  padding: 6px 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+
+/* ==============================
+   CARD CONTENT
+================================ */
+
+.timeline-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+
+  letter-spacing: 0.5px;
+
+  margin-bottom: 15px;
+
+  transition: 0.3s ease;
+}
+
+.timeline-event:hover .timeline-card h3 {
+  color: #ff3333;
+}
+
+.timeline-card p {
+  color: #888888;
+
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+
+/* ==============================
+   CARD BOTTOM
+================================ */
+
+.timeline-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-top: 25px;
+}
+
+.timeline-card-line {
+  width: 30px;
+  height: 1px;
+
+  background: #ff3333;
+}
+
+.timeline-card-bottom span:last-child {
+  color: #555555;
+
+  font-size: 9px;
+  letter-spacing: 2px;
+}
+
+
+/* ==============================
+   TIMELINE FOOTER
+================================ */
+
+.timeline-footer {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 25px;
+
+  margin-top: 80px;
+}
+
+.timeline-footer p {
+  color: #ff3333;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+  text-align: center;
+}
+
+.timeline-footer-line {
+  width: 60px;
+  height: 1px;
+
+  background: rgba(255, 51, 51, 0.4);
+}
+
+
+/* ==============================
+   TABLET
+================================ */
+
+@media (max-width: 900px) {
+
+  .timeline-section {
+    padding: 100px 5%;
+  }
+
+  .timeline-card {
+    width: calc(50% - 45px);
+    padding: 25px;
+  }
+
+  .timeline-card h3 {
+    font-size: 17px;
+  }
+
+  .timeline-status {
+    font-size: 8px;
+  }
+
+}
+
+
+/* ==============================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+  .timeline-section {
+    padding: 80px 20px;
+  }
+
+  .timeline-header {
+    margin-bottom: 60px;
+  }
+
+  .timeline-header h2 {
+    letter-spacing: -1px;
+  }
+
+  .timeline-subtitle {
+    font-size: 13px;
+  }
+
+  /* MOVE CENTRAL LINE TO LEFT */
+
+  .timeline-line {
+    left: 24px;
+  }
+
+  /* ALL EVENTS ALIGN RIGHT */
+
+  .timeline-event {
+    min-height: auto;
+
+    padding-left: 60px;
+    margin-bottom: 35px;
+  }
+
+  .timeline-event.left,
+  .timeline-event.right {
+    justify-content: flex-start;
+  }
+
+  /* NODE */
+
+  .timeline-node {
+    left: 24px;
+
+    width: 42px;
+    height: 42px;
+
+    font-size: 10px;
+  }
+
+  /* CARD */
+
+  .timeline-card {
+    width: 100%;
+
+    padding: 22px;
+  }
+
+  .timeline-card-top {
+    flex-wrap: wrap;
+    gap: 10px;
+
+    margin-bottom: 20px;
+  }
+
+  .timeline-card h3 {
+    font-size: 16px;
+  }
+
+  .timeline-card p {
+    font-size: 12px;
+  }
+
+  /* FOOTER */
+
+  .timeline-footer {
+    gap: 12px;
+    margin-top: 50px;
+  }
+
+  .timeline-footer p {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+  }
+
+  .timeline-footer-line {
+    width: 25px;
+  }
+
+}
