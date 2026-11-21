@@ -1,0 +1,373 @@
+/* ========================================
+   PRIZES SECTION
+======================================== */
+
+.prizes-section {
+  position: relative;
+  padding: 120px 10%;
+  background: #080808;
+  overflow: hidden;
+}
+
+/* Background grid */
+
+.prizes-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* Vault glow */
+
+.prizes-section::after {
+  content: "";
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  left: 50%;
+  top: 30%;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 0, 0, 0.06),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+/* ========================================
+   HEADER
+======================================== */
+
+.prizes-header {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.prizes-label {
+  color: #ff3030;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 5px;
+
+  margin-bottom: 20px;
+}
+
+.prizes-header h2 {
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.1;
+}
+
+.prizes-header h2 span {
+  color: #ff3030;
+}
+
+.prizes-subtitle {
+  color: #888;
+  font-size: 1rem;
+  letter-spacing: 1px;
+
+  margin-top: 20px;
+}
+
+/* ========================================
+   PRIZE GRID
+======================================== */
+
+.prizes-grid {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+
+  gap: 25px;
+}
+
+/* ========================================
+   PRIZE CARD
+======================================== */
+
+.prize-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 400px;
+  padding: 35px;
+
+  background: rgba(15, 15, 15, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+/* Top red accent */
+
+.prize-card::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background: #ff3030;
+
+  opacity: 0.3;
+
+  transition: opacity 0.4s ease;
+}
+
+/* Hover */
+
+.prize-card:hover {
+  transform: translateY(-10px);
+
+  border-color: rgba(255, 48, 48, 0.5);
+
+  box-shadow:
+    0 20px 50px rgba(255, 0, 0, 0.06),
+    inset 0 0 30px rgba(255, 0, 0, 0.02);
+}
+
+.prize-card:hover::before {
+  opacity: 1;
+}
+
+/* ========================================
+   FIRST PLACE
+======================================== */
+
+.prize-card:first-child {
+  border-color: rgba(255, 190, 60, 0.25);
+
+  background: linear-gradient(
+    180deg,
+    rgba(35, 25, 10, 0.5),
+    rgba(15, 15, 15, 0.95)
+  );
+}
+
+.prize-card:first-child::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #d4a84f,
+    transparent
+  );
+
+  opacity: 0.8;
+}
+
+.prize-card:first-child .prize-rank {
+  color: #d4a84f;
+}
+
+.prize-card:first-child .prize-amount {
+  color: #d4a84f;
+
+  text-shadow: 0 0 20px rgba(212, 168, 79, 0.15);
+}
+
+.prize-card:first-child:hover {
+  border-color: rgba(212, 168, 79, 0.6);
+
+  box-shadow:
+    0 20px 50px rgba(212, 168, 79, 0.08),
+    inset 0 0 30px rgba(212, 168, 79, 0.03);
+}
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.prize-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.prize-rank {
+  color: rgba(255, 48, 48, 0.5);
+  font-size: 2.5rem;
+  font-weight: 900;
+}
+
+.prize-label {
+  color: #ff3030;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+
+  padding: 7px 10px;
+
+  border: 1px solid rgba(255, 48, 48, 0.25);
+}
+
+/* ========================================
+   CARD CONTENT
+======================================== */
+
+.prize-card-content {
+  margin: 40px 0;
+}
+
+.prize-card-content h3 {
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+
+  margin-bottom: 20px;
+}
+
+.prize-amount {
+  color: #ff3030;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -1px;
+
+  margin-bottom: 20px;
+
+  transition: text-shadow 0.4s ease;
+}
+
+.prize-card:hover .prize-amount {
+  text-shadow: 0 0 20px rgba(255, 48, 48, 0.2);
+}
+
+.prize-card-content p {
+  color: #888;
+  font-size: 0.85rem;
+  line-height: 1.8;
+}
+
+/* ========================================
+   CARD BOTTOM
+======================================== */
+
+.prize-card-bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.prize-line {
+  width: 30px;
+  height: 1px;
+
+  background: #ff3030;
+}
+
+.prize-card:first-child .prize-line {
+  background: #d4a84f;
+}
+
+.prize-card-bottom span:last-child {
+  color: #666;
+  font-size: 0.6rem;
+  letter-spacing: 2px;
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.prizes-footer {
+  position: relative;
+  z-index: 2;
+
+  text-align: center;
+  margin-top: 60px;
+}
+
+.prizes-footer p {
+  color: #555;
+  font-size: 0.7rem;
+  letter-spacing: 4px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+  .prizes-section {
+    padding: 100px 7%;
+  }
+
+  .prizes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prize-card:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 650px) {
+  .prizes-section {
+    padding: 80px 6%;
+  }
+
+  .prizes-header {
+    margin-bottom: 50px;
+  }
+
+  .prizes-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .prize-card:first-child {
+    grid-column: auto;
+  }
+
+  .prize-card {
+    min-height: 350px;
+    padding: 28px;
+  }
+
+  .prizes-header h2 {
+    font-size: 2.5rem;
+  }
+
+  .prizes-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .prizes-footer p {
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    line-height: 1.8;
+  }
+}
