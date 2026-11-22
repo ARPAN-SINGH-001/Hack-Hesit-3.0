@@ -9,7 +9,9 @@ import Prizes from "./components/Prizes";
 import Timeline from "./components/Timeline";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
-
+import PastHeists from "./components/PastHeist";
+import Organizers from "./components/Organizers";
+import FAQs from "./components/FAQs";
 
 function App() {
   return (
@@ -25,6 +27,9 @@ function App() {
       <Tracks/>
       <Prizes/>
       <Timeline/>
+      <PastHeists />
+      <Organizers />
+      <FAQs />
       <Register/>
       <Footer/>
         

@@ -1,0 +1,483 @@
+/* ================================
+   PAST HEISTS SECTION
+================================ */
+
+.past-heists {
+  position: relative;
+  width: 100%;
+  padding: 140px 8% 120px;
+  background: #111210;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Subtle ambient glow */
+
+.past-heists::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  right: -15%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(
+    circle,
+    rgba(185, 161, 122, 0.05),
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ================================
+   SECTION HEADER
+================================ */
+
+.past-heists-header {
+  position: relative;
+  max-width: 700px;
+  margin-bottom: 70px;
+  z-index: 2;
+}
+
+.archive-label {
+  display: inline-block;
+  font-family: monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #b9a17a;
+  margin-bottom: 22px;
+}
+
+.past-heists-header h2 {
+  font-size: clamp(42px, 6vw, 90px);
+  font-weight: 800;
+  letter-spacing: -4px;
+  line-height: 0.95;
+  color: #e9e5dc;
+  margin-bottom: 25px;
+}
+
+.past-heists-header h2 span {
+  color: #b9a17a;
+}
+
+.past-heists-header p {
+  max-width: 450px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #77766f;
+  letter-spacing: 0.3px;
+}
+
+/* ================================
+   GALLERY GRID
+================================ */
+
+.past-heists-gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 340px 280px 340px;
+  gap: 20px;
+  z-index: 2;
+}
+
+/* ================================
+   IMAGE CARDS
+================================ */
+
+.heist-image {
+  position: relative;
+  overflow: hidden;
+  background: #1b1b18;
+  border: 1px solid rgba(233, 229, 220, 0.08);
+  cursor: pointer;
+}
+
+.heist-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+  filter: grayscale(35%) brightness(0.8);
+
+  transition:
+    transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 0.6s ease;
+}
+
+/* Image hover */
+
+.heist-image:hover img {
+  transform: scale(1.06);
+  filter: grayscale(0%) brightness(0.95);
+}
+
+/* ================================
+   ASYMMETRIC LAYOUT
+================================ */
+
+/* Image 1 - Main feature */
+
+.heist-image-1 {
+  grid-column: 1 / 8;
+  grid-row: 1 / 2;
+}
+
+/* Image 2 - Right side */
+
+.heist-image-2 {
+  grid-column: 8 / 13;
+  grid-row: 1 / 2;
+}
+
+/* Image 3 - Left bottom */
+
+.heist-image-3 {
+  grid-column: 1 / 5;
+  grid-row: 2 / 3;
+}
+
+/* Image 4 - Center bottom */
+
+.heist-image-4 {
+  grid-column: 5 / 9;
+  grid-row: 2 / 3;
+}
+
+/* Image 5 - Right bottom */
+
+.heist-image-5 {
+  grid-column: 9 / 13;
+  grid-row: 2 / 4;
+}
+
+/* ================================
+   IMAGE OVERLAY
+================================ */
+
+.heist-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(10, 10, 9, 0.9) 0%,
+    rgba(10, 10, 9, 0.35) 35%,
+    transparent 75%
+  );
+
+  opacity: 0.8;
+  transition: opacity 0.5s ease;
+}
+
+.heist-image:hover::after {
+  opacity: 0.55;
+}
+
+/* ================================
+   IMAGE TEXT
+================================ */
+
+.heist-image-overlay {
+  position: absolute;
+  bottom: 25px;
+  left: 25px;
+  z-index: 2;
+
+  transition: transform 0.4s ease;
+}
+
+.heist-image:hover .heist-image-overlay {
+  transform: translateY(-5px);
+}
+
+.heist-image-overlay span {
+  display: block;
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #b9a17a;
+  margin-bottom: 10px;
+}
+
+.heist-image-overlay h3 {
+  font-size: clamp(16px, 1.8vw, 25px);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: #e9e5dc;
+}
+
+/* ================================
+   RESPONSIVE - TABLET
+================================ */
+
+@media (max-width: 1024px) {
+  .past-heists {
+    padding: 100px 6%;
+  }
+
+  .past-heists-gallery {
+    grid-template-rows: 280px 240px 280px;
+    gap: 15px;
+  }
+
+  .heist-image-1 {
+    grid-column: 1 / 8;
+  }
+
+  .heist-image-2 {
+    grid-column: 8 / 13;
+  }
+
+  .heist-image-3 {
+    grid-column: 1 / 5;
+  }
+
+  .heist-image-4 {
+    grid-column: 5 / 9;
+  }
+
+  .heist-image-5 {
+    grid-column: 9 / 13;
+  }
+}
+
+/* ================================
+   RESPONSIVE - MOBILE
+================================ */
+
+@media (max-width: 768px) {
+  .past-heists {
+    padding: 90px 5% 80px;
+  }
+
+  .past-heists-header {
+    margin-bottom: 45px;
+  }
+
+  .past-heists-header h2 {
+    font-size: clamp(40px, 11vw, 65px);
+    letter-spacing: -2px;
+  }
+
+  .past-heists-header p {
+    font-size: 14px;
+  }
+
+  .past-heists-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 230px);
+    gap: 12px;
+  }
+
+  .heist-image-1 {
+    grid-column: 1 / 3;
+    grid-row: 1 / 2;
+  }
+
+  .heist-image-2 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+  }
+
+  .heist-image-3 {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .heist-image-4 {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+  }
+
+  .heist-image-5 {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+  }
+
+  .heist-image-overlay {
+    bottom: 15px;
+    left: 15px;
+  }
+
+  .heist-image-overlay span {
+    font-size: 8px;
+    letter-spacing: 1.5px;
+  }
+
+  .heist-image-overlay h3 {
+    font-size: 13px;
+  }
+}
+
+/* ================================
+   RESPONSIVE - SMALL MOBILE
+================================ */
+
+@media (max-width: 480px) {
+  .past-heists-gallery {
+    grid-template-rows: repeat(3, 190px);
+    gap: 10px;
+  }
+
+  .heist-image-overlay {
+    bottom: 12px;
+    left: 12px;
+  }
+
+  .heist-image-overlay h3 {
+    font-size: 11px;
+  }
+}
+
+/* ================================
+   FULLSCREEN IMAGE VIEWER
+================================ */
+
+.heist-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(8, 8, 8, 0.96);
+  backdrop-filter: blur(20px);
+}
+
+/* Main image */
+
+.lightbox-image {
+  max-width: 80vw;
+  max-height: 75vh;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border: 1px solid rgba(233, 229, 220, 0.12);
+}
+
+/* Close button */
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e9e5dc;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  cursor: pointer;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(185, 161, 122, 0.15);
+  transform: scale(1.05);
+}
+
+.lightbox-close {
+  top: 30px;
+  right: 35px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.lightbox-prev {
+  left: 35px;
+}
+
+.lightbox-next {
+  right: 35px;
+}
+
+/* Caption */
+
+.lightbox-caption {
+  position: absolute;
+  bottom: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.lightbox-caption span {
+  font-family: monospace;
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #b9a17a;
+}
+
+.lightbox-caption h3 {
+  color: #e9e5dc;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.lightbox-caption p {
+  color: #77766f;
+  font-size: 12px;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .lightbox-image {
+    max-width: 90vw;
+    max-height: 65vh;
+  }
+
+  .lightbox-prev {
+    left: 10px;
+  }
+
+  .lightbox-next {
+    right: 10px;
+  }
+
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lightbox-close {
+    top: 20px;
+    right: 20px;
+  }
+
+  .lightbox-caption {
+    bottom: 25px;
+  }
+}
